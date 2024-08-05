@@ -3,6 +3,7 @@ FROM docker:20.10.7-dind
 
 # Install Docker Compose
 RUN apk add --no-cache curl py3-pip && \
+    pip install wheel && \
     pip install docker-compose
     
 
