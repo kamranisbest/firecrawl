@@ -3,14 +3,6 @@ FROM docker:20.10.7-dind
 
 # Install Docker Compose
 RUN apk add --no-cache curl py3-pip \
-    gcc \
-    g++ \
-    make \
-    libffi-dev \
-    python3-dev \
-    && pip install docker-compose
-
-RUN apk add --no-cache curl py3-pip \
     apt-get update && \
     apt-get install -y \
     gcc \
@@ -23,7 +15,8 @@ RUN apk add --no-cache curl py3-pip \
     rustc \
     cargo \
     && rm -rf /var/lib/apt/lists/* \
-    && pip install docker-compose
+    && pip install docker-compose \
+    && pip install cryptography
 
 # Copy your docker-compose.yml file into the container
 COPY . /app
