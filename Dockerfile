@@ -10,6 +10,21 @@ RUN apk add --no-cache curl py3-pip \
     python3-dev \
     && pip install docker-compose
 
+RUN apk add --no-cache curl py3-pip \
+    apt-get update && \
+    apt-get install -y \
+    gcc \
+    g++ \
+    make \
+    python3-dev \
+    build-essential \
+    libffi-dev \
+    libssl-dev \
+    rustc \
+    cargo \
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install docker-compose
+
 # Copy your docker-compose.yml file into the container
 COPY . /app
 
