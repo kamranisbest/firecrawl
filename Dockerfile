@@ -15,8 +15,9 @@ RUN apk add --no-cache curl py3-pip \
     rustc \
     cargo \
     && rm -rf /var/lib/apt/lists/* \
-    && pip install docker-compose \
-    && pip install cryptography
+    && pip install cryptography \
+    && pip install docker-compose
+    
 
 # Copy your docker-compose.yml file into the container
 COPY . /app
