@@ -2,19 +2,7 @@
 FROM docker:20.10.7-dind
 
 # Install Docker Compose
-RUN apk add --no-cache curl py3-pip \
-    apt-get update && \
-    apt-get install -y \
-    gcc \
-    g++ \
-    make \
-    python3-dev \
-    build-essential \
-    libffi-dev \
-    libssl-dev \
-    rustc \
-    cargo \
-    && rm -rf /var/lib/apt/lists/* \
+RUN apk add --no-cache curl py3-pip \    
     && pip install cryptography \
     && pip install docker-compose
     
