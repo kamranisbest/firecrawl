@@ -2,7 +2,8 @@
 FROM docker:20.10.7-dind
 
 # Install Docker Compose
-RUN pip install docker-compose
+RUN apk add --no-cache curl py3-pip && \
+    pip install docker-compose
     
 
 # Copy your docker-compose.yml file into the container
